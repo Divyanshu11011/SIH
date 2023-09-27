@@ -1,5 +1,6 @@
 .Animation-Container{
     /* background: linear-gradient(to right,#2c5364,#0f2027); */
+    margin-top:50px;
     background-color: white;
     height:100vh;
     display: flex;

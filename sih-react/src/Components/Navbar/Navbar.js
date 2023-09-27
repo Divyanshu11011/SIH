@@ -13,7 +13,7 @@ function Navbar(){
             <div>
                 <ul id="Navbar-Menu-Container" className={clicked?"Navbar-Menu-Container active":"Navbar-Menu-Container"}>
                     <Link to="home" smooth={true} duration={1000}><li><a href="#" className="active">Home</a></li></Link>
-                    <Link to="feature" smooth={true} duration={1000}><li><a href="#" className="active">Generate</a></li></Link>
+                    <li><a href="/generate" className="active">Generate</a></li>
                     <Link to="team" smooth={true} duration={1000}><li><a href="#" className="active">Deploy</a></li></Link>
                     <li><a href="#" className="active">Verify</a></li>
                     <li className="Login"><a href="#" className="active">Cruxer 🔐</a></li>
