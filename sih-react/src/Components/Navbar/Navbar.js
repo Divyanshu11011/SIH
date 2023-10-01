@@ -9,7 +9,9 @@ function Navbar(){
     }
     return(
         <nav>
-            <span className="Navbar-heading">CryptoCrux</span>
+            
+            
+            <img src="assets/images/logo.png" width="50px"/>
             <div>
                 <ul id="Navbar-Menu-Container" className={clicked?"Navbar-Menu-Container active":"Navbar-Menu-Container"}>
                     <Link to="home" smooth={true} duration={1000}><li><a href="#" className="active">Home</a></li></Link>
