@@ -9,6 +9,7 @@ import Footer from '../../Components/Footer/Footer';
 import {BrowserRouter, Routes,Route,redirect,Navigate} from "react-router-dom";
 import Button from "../../Components/Button/Button";
 import Generate from "../Generate/Generate";
+import Data from "../Data/Data";
 export default function Landing() {
     return (
         <div>
@@ -26,6 +27,8 @@ export default function Landing() {
                         </>
                     }/>
                     <Route path="/generate" element={<Generate/>}/>
+                    <Route path="/data" element={<Data/>}/>
+                    
                 </Routes>
             </BrowserRouter>
         </div>

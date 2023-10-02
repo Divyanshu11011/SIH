@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Generate.css";
+import Data from "../Data/Data";
+import { Link } from 'react-router-dom';
+
 
 function Generate() {
   const [status, setStatus] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
+  
 
   const handleCreateCertificates = async () => {
     try {
@@ -25,6 +29,8 @@ function Generate() {
   const handleImageClick = (imageUrl) => {
     setSelectedImage(imageUrl);
   };
+  
+
 
   return (
     <div className="App">
@@ -70,9 +76,9 @@ function Generate() {
               >
                 GENERATE
               </button>
-              <br />
-              <button
-                onClick={handleCreateCertificates}
+             <br/>
+             <button
+                
                 style={{
                   padding: "10px",
                   fontSize: "x-large",
@@ -84,7 +90,7 @@ function Generate() {
                   width: "300px",
                 }}
               >
-                UPLOAD
+               <Link style={{ textDecoration: "none",color:"black"}}to="/data"> UPLOAD</Link>
               </button>
               <br />
               <p>Status: {status}</p>
@@ -193,6 +199,7 @@ function Generate() {
             </div>
           </div>
         )}
+       
       </div>
     </div>
   );
