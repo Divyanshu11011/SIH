@@ -7,8 +7,10 @@ import Container from '../../Components/BtnContainer/Container';
 import Animation from '../../Components/Carousel/Animation';
 import Footer from '../../Components/Footer/Footer';
 import {BrowserRouter, Routes,Route,redirect,Navigate} from "react-router-dom";
-import Button from "../../Components/Button/Button";
 import Generate from "../Generate/Generate";
+import Data from "../Data/Data";
+import Verify from "../Verify/Verify";
+import Admin from "../Admin/Admin";
 export default function Landing() {
     return (
         <div>
@@ -26,6 +28,9 @@ export default function Landing() {
                         </>
                     }/>
                     <Route path="/generate" element={<Generate/>}/>
+                    <Route path="/data" element={<Data/>}/>
+                    <Route path="/verify" element={<Verify/>}/>
+                    <Route path="/admin" element={<Admin/>} />
                 </Routes>
             </BrowserRouter>
         </div>
