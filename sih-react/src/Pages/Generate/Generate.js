@@ -8,12 +8,26 @@ import { Link } from 'react-router-dom';
 function Generate() {
   const [status, setStatus] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
+  const [Image,SetImage] = useState(null);
   
+  /* Test Purpose */
+  const [x,setX]=useState('');
+  const [y,setY]=useState('');
 
   const handleCreateCertificates = async () => {
     try {
-      const response = await axios.get(
-        "http://localhost:5000/generate_certificate"
+      const response = await axios.post(
+        "http://localhost:5000/generate_certificate",
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          // template:JSON.stringify( selectedTemplate ),
+          template: Image,
+          X:x,
+          Y:y,
+        }
       );
 
       if (response.status === 200) {
@@ -26,8 +40,12 @@ function Generate() {
     }
   };
 
-  const handleImageClick = (imageUrl) => {
-    setSelectedImage(imageUrl);
+  const handleImageClick = (imageUrl,xAxis,yAxis) => {
+    setSelectedImage(`Templates/${imageUrl}`);
+    /* Test Purpose */
+    setX(xAxis);
+    setY(yAxis);
+    SetImage(imageUrl);
   };
   
 
@@ -123,11 +141,11 @@ function Generate() {
             >
               <div
                 className="image-container"
-                onClick={() => handleImageClick("assets/images/cert1.png")}
+                onClick={() => handleImageClick("template1.png",'1009','644')}
                 style={{ marginRight: "90px" }} // Add margin between images
               >
                 <img
-                  src="assets/images/cert1.png"
+                  src="Templates/template1.png"
                   style={{ width: "500px" }}
                   alt="Image 1"
                 />
@@ -135,11 +153,11 @@ function Generate() {
               </div>
               <div
                 className="image-container"
-                onClick={() => handleImageClick("assets/images/test.jpg")}
+                onClick={() => handleImageClick("template2.png",'976','727')}
                 style={{ marginRight: "90px" }} // Add margin between images
               >
                 <img
-                  src="assets/images/test.jpg"
+                  src="Templates/template2.png"
                   style={{
                     width: "500px",
                     marginRight: "50%",
@@ -150,11 +168,11 @@ function Generate() {
               </div>
               <div
                 className="image-container"
-                onClick={() => handleImageClick("assets/images/cert2.png")}
+                onClick={() => handleImageClick("template3.png",'976','716')}
                 style={{ marginRight: "90px" }} // Add margin between images
               >
                 <img
-                  src="assets/images/cert2.png"
+                  src="Templates/template3.png"
                   style={{ width: "500px" }}
                   alt="Image 1"
                 />
@@ -162,11 +180,11 @@ function Generate() {
               </div>
               <div
                 className="image-container"
-                onClick={() => handleImageClick("assets/images/test.jpg")}
+                onClick={() => handleImageClick("template4.png",'981','738')}
                 style={{ marginRight: "90px" }} // Add margin between images
               >
                 <img
-                  src="assets/images/test.jpg"
+                  src="Templates/template4.png"
                   style={{ width: "500px" }}
                   alt="Image 1"
                 />
@@ -174,11 +192,11 @@ function Generate() {
               </div>
               <div
                 className="image-container"
-                onClick={() => handleImageClick("assets/images/test.jpg")}
+                onClick={() => handleImageClick("template5.png",'973','698')}
                 style={{ marginRight: "90px" }} // Add margin between images
               >
                 <img
-                  src="assets/images/test.jpg"
+                  src="Templates/template5.png"
                   style={{ width: "500px" }}
                   alt="Image 1"
                 />
@@ -186,11 +204,11 @@ function Generate() {
               </div>
               <div
                 className="image-container"
-                onClick={() => handleImageClick("assets/images/cert1.png")}
+                onClick={() => handleImageClick("template6.png",'868','773')}
                 style={{ marginRight: "90px" }} // Add margin between images
               >
                 <img
-                  src="assets/images/cert1.png"
+                  src="Templates/template6.png"
                   style={{ width: "500px" }}
                   alt="Image 1"
                 />
