@@ -21,11 +21,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "npm-run-all -p start-react start-python",
+    "start": "npm-run-all -p start-react start-python react-app-rewired start",
     "start-react": "react-scripts start",
     "start-python": "python src/main.py",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "build": "react-scripts build react-app-rewired build",
+    "test": "react-scripts test react-app-rewired test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
