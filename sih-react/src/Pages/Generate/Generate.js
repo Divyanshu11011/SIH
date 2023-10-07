@@ -5,7 +5,6 @@ import './Generate.css'; // Import your CSS file
 function YourComponent() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [isFullScreen, setIsFullScreen] = useState(false);
-  
   const [status, setStatus] = useState("");
 
   const handleCreateCertificates = async () => {
@@ -24,6 +23,7 @@ function YourComponent() {
     }
   };
 
+  
 
   const images = [
     {
@@ -258,12 +258,12 @@ function YourComponent() {
               <button onClick={handleCreateCertificates}>Generate</button>
               <button onClick={uploadHandler}>Upload</button>
               <p>Status: {status}</p>
-
             </div>
 
             <button className="close-button" onClick={closeFullScreen}>
               Close
             </button>
+
           </div>
         </div>
       )}
