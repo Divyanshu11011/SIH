@@ -6,6 +6,9 @@ function YourComponent() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [status, setStatus] = useState("");
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [uploadStatus, setUploadStatus] = useState(null);
+  const [selectedFileName, setSelectedFileName] = useState("Click to select file");
 
   const handleCreateCertificates = async () => {
     try {
@@ -22,7 +25,39 @@ function YourComponent() {
       setStatus("An error occurred.");
     }
   };
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    setSelectedFile(file);
+    setUploadStatus(null);
+    if (file) {
+      setSelectedFileName(file.name+" Selected");
+    } else {
+      setSelectedFileName("Click to select file");
+    }
+  };
 
+  const handleFileUpload = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    if (selectedFile) {
+      const formData = new FormData();
+      formData.append("file", selectedFile);
+
+      axios
+        .post("http://localhost:5000/data", formData)
+        .then((response) => {
+          if (response.data === "File uploaded and data written to Data.xlsx") {
+            setUploadStatus("Data uploaded successfully");
+            
+
+          }
+        })
+        .catch((error) => {
+          console.error("Error uploading file:", error);
+          setUploadStatus("Error uploading file");
+        });
+    }
+  };
   const images = [
     {
       bgImage:
@@ -299,16 +334,30 @@ function YourComponent() {
                 alignItems: "center",
               }}
             >
+                 <label htmlFor="file" style={{
+          }}
+            >
+        {selectedFileName}
+        </label>
+
+        <input
+        type="file"
+        id="file"
+        onChange={handleFileChange}
+      
+        />
+        <button onClick={handleFileUpload} style={{ margin: "1%" }}>
+                Upload
+              </button>
               <button
                 onClick={handleCreateCertificates}
                 style={{ margin: "1%", width: "100px" }}
               >
                 Generate
               </button>
-              <button onClick={uploadHandler} style={{ margin: "1%" }}>
-                Upload
-              </button>
-              <p style={{ margin: "1%" }}>Status: {status}</p>
+              
+              <p style={{ margin: "1%" }}>Status: {uploadStatus}<br/>
+              {status}</p>
             </div>
           </div>
         </div>

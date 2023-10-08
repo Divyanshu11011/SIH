@@ -8,25 +8,17 @@ parent_directory = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pa
 
 # Specify the path to the "public" folder in the parent directory
 public_folder_path = os.path.join(parent_directory, 'public')
+# Define the source (src) folder path
+src_folder_path = os.path.join(parent_directory, 'src')
+
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/generate_certificate', methods=['POST'])
+@app.route('/generate_certificate', methods=['GET', 'POST'])
 def generate_certificate():
-    # test Purpose
-    print(parent_directory)
-    print(public_folder_path)
-    data=request.get_json()
-    img=data['template']
-    print(img)
-    X=int(data['X'])
-    Y=int(data['Y'])
-    print(X)
-    print(Y)
     try:
-        #template_path = os.path.join(public_folder_path, 'Templates', 'template1.png')
-        template_path = os.path.join(public_folder_path, 'Templates',img)
-        data_path = os.path.join(public_folder_path, 'data', 'Data.xlsx')
+        template_path = os.path.join(public_folder_path, 'Templates', 'template6.png')
+        data_path = os.path.join(src_folder_path, 'data', 'Data.xlsx')
 
         # Check if files exist
         if not os.path.exists(template_path) or not os.path.exists(data_path):
@@ -35,11 +27,11 @@ def generate_certificate():
         data = pd.read_excel(data_path)
         list_names = data['Name'].tolist()
 
-        certificate_folder = os.path.join(public_folder_path,'Generated_Certificate')
+        certificate_folder = os.path.join(src_folder_path, 'Generate_Certificates')
 
         for index, name in enumerate(list_names):
             template = cv2.imread(template_path)
-            cv2.putText(template, name, (X, Y), cv2.FONT_HERSHEY_COMPLEX, 1.5, (0, 0, 0), 1, cv2.LINE_AA)
+            cv2.putText(template, name, (868, 773), cv2.FONT_HERSHEY_COMPLEX, 1.5, (0, 0, 0), 1, cv2.LINE_AA)
             certificate_path = os.path.join(certificate_folder, f'{name}.png')
             # cv2.imwrite(certificate_path, template)
             cv2.imwrite(certificate_path, template)
@@ -61,7 +53,7 @@ def upload_file():
                 data = pd.read_excel(uploaded_file)
 
                 # Specify the full path for the Excel file
-                excel_file_path = os.path.join(public_folder_path, 'data', 'Data.xlsx')
+                excel_file_path = os.path.join(src_folder_path, 'data', 'Data.xlsx')
 
                 # Write the DataFrame to an Excel file
                 data.to_excel(excel_file_path, index=False)

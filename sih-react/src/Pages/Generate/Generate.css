@@ -120,3 +120,84 @@ h1 {
 	border-radius: 8px;
 	background: linear-gradient(135deg, rgba(215, 234, 245, 0.25) 0%,rgba(255,255,255,0) 60%);
 }
+
+/* data.css */
+
+/* Style the outer container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f0f0; /* Set your desired background color */
+  }
+  
+  /* Style the input file element */
+  input[type="file"] {
+    margin-bottom: 20px;
+  }
+  
+  /* Style the upload button */
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff; /* Set your desired button color */
+    color: #fff; /* Set your desired button text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Style the upload button on hover */
+  button:hover {
+    background-color: #0056b3; /* Set your desired hover color */
+  }
+  
+  input[type="file"] {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f0f0f0; /* Background color for the input */
+    cursor: pointer;
+  }
+  
+  /* Style the input file label */
+  label {
+    background-color: #007bff; /* Button-like background color */
+    color: #fff; /* Button text color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+ /* Data.css */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    height: 100vh; /* Set the container height to the viewport height */
+  }
+  
+  input[type="file"] {
+    display: none; /* Hide the file input */
+  }
+  
+  .custom-file-upload {
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: #007bff; /* Your preferred background color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .custom-file-upload:hover {
+    background-color: #0056b3; /* Hover color */
+  }
+  
