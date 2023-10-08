@@ -16,7 +16,8 @@ function Navbar(){
                 <ul id="Navbar-Menu-Container" className={clicked?"Navbar-Menu-Container active":"Navbar-Menu-Container"}>
                     <li><a href="/" className="active">Home</a></li>
                     <li><a href="/generate" className="active">Generate</a></li>
-                    <li><a href="/admin" className="active">Deploy</a></li>
+                    <li><a href="/admin" className="active">Admin</a></li>
+                    <li><a href="/deploy" className="active">Deploy</a></li>
                     <li><a href="/verify" className="active">Verify</a></li>
                     <li className="Login"><a href="#" className="active">Cruxer 🔐</a></li>
                 </ul>

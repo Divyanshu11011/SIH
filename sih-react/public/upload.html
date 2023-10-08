@@ -36,7 +36,7 @@
       </div>
     </div>
     <!--NavigationBar-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light py-3 navbar-dark">
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light py-3 navbar-dark">
       <div class="container">
         <a class="navbar-brand" href="index.html">
           <i class="fa-solid fa-dragon home_text"></i>
@@ -76,7 +76,7 @@
               <a class="nav-link" href="about.html">Team</a>
             </li>
           </ul>
-          <div class="d-flex">
+          <div class="d-flex"> 
             <button
               id="loginButton"
               onclick="connect()"
@@ -94,9 +94,24 @@
           </div>
         </div>
       </div>
-    </nav>
-
-    <!-- Body -->
+    </nav>  -->
+    <div class="d-flex"> 
+      <button
+        id="loginButton"
+        onclick="connect()"
+        class="btn main-button"
+      >
+        Login
+      </button>
+      <button
+        id="logoutButton"
+        onclick="disconnect()"
+        class="btn main-button"
+      >
+        Logout
+      </button>
+    </div>
+    <!-- Body
     <div class="container">
       <div class="alert alert-danger d-none mt-2">
         Please download MetaMask at
@@ -198,7 +213,7 @@
       <div class="transactions row gy-2 gx-5 justify-content-center p-4"></div>
     </div>
     <!-- footer -->
-    <div class="container">
+    <!-- <div class="container">
       <footer class="footer-dark">
         <div class="row">
           <div class="col-sm-6 col-md-3 item">
@@ -220,9 +235,9 @@
             <h3>
               <i class="fa-solid fa-dragon"></i>
               OrioChain
-            </h3>
+            </h3>-->
             <!-- <a href="https://www.flaticon.com/free-icons/blockchain" title="blockchain icons">Blockchain icons created by photo3idea_studio - Flaticon</a> -->
-            <p>
+            <!-- <p>
               Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus
               ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique
               lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.
@@ -285,7 +300,7 @@
         </div>
         <p class="copyright">OrioChain © 2022</p>
       </footer>
-    </div>
+    </div> -->
 
     <!-- floating button -->
     <i onclick="topFunction()" id="scroll-btn" class="fa-solid fa-angle-up"></i>

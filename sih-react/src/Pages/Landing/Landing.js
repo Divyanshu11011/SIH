@@ -10,6 +10,7 @@ import {BrowserRouter, Routes,Route,redirect,Navigate} from "react-router-dom";
 import Generate from "../Generate/Generate";
 import Verify from "../Verify/Verify";
 import Admin from "../Admin/Admin";
+import Upload from "../Upload/Upload";
 export default function Landing() {
     return (
         <div>
@@ -30,6 +31,7 @@ export default function Landing() {
                     
                     <Route path="/verify" element={<Verify/>}/>
                     <Route path="/admin" element={<Admin/>} />
+                    <Route path="/deploy" element={<Upload/>} />
                 </Routes>
             </BrowserRouter>
         </div>

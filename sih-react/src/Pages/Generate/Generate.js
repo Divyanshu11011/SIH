@@ -9,11 +9,23 @@ function YourComponent() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [uploadStatus, setUploadStatus] = useState(null);
   const [selectedFileName, setSelectedFileName] = useState("Click to select file");
+  const [template,setTemplate]=useState(null);
+  const [xAxis,setXaxis]=useState(null);
+  const [yAxis,setYaxis]=useState(null);
 
   const handleCreateCertificates = async () => {
     try {
-      const response = await axios.get(
-        "http://localhost:5000/generate_certificate"
+      const response = await axios.post(
+        "http://localhost:5000/generate_certificate",
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          Template: template,
+          X:xAxis,
+          Y:yAxis,
+        }
       ); // Replace with your Flask server URL
 
       if (response.status === 200) {
@@ -30,7 +42,7 @@ function YourComponent() {
     setSelectedFile(file);
     setUploadStatus(null);
     if (file) {
-      setSelectedFileName(file.name+" Selected");
+      setSelectedFileName(file.name + " Selected");
     } else {
       setSelectedFileName("Click to select file");
     }
@@ -48,8 +60,6 @@ function YourComponent() {
         .then((response) => {
           if (response.data === "File uploaded and data written to Data.xlsx") {
             setUploadStatus("Data uploaded successfully");
-            
-
           }
         })
         .catch((error) => {
@@ -63,33 +73,51 @@ function YourComponent() {
       bgImage:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFJ29x_Mz2NA7mWntOCF5kEjFARjkc8ot6Ag",
       overlayImage: "Templates/template1.png",
+      template: "template1.png",
+      x:1009,
+      y:644,
     },
     {
       bgImage:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFJ29x_Mz2NA7mWntOCF5kEjFARjkc8ot6Ag",
       overlayImage: "Templates/template2.png",
+      template: "template2.png",
+      x:976,
+      y:727,
     },
     {
       bgImage:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFJ29x_Mz2NA7mWntOCF5kEjFARjkc8ot6Ag",
       overlayImage: "Templates/template3.png",
+      template: "template3.png",
+      x:976,
+      y:716,
     },
     {
       bgImage:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFJ29x_Mz2NA7mWntOCF5kEjFARjkc8ot6Ag",
       overlayImage: "Templates/template4.png",
+      template: "template4.png",
+      x:857,
+      y:716,
     },
     ,
     {
       bgImage:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFJ29x_Mz2NA7mWntOCF5kEjFARjkc8ot6Ag",
       overlayImage: "Templates/template5.png",
+      template: "template5.png",
+      x:973,
+      y:698,
     },
 
     {
       bgImage:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFJ29x_Mz2NA7mWntOCF5kEjFARjkc8ot6Ag",
       overlayImage: "Templates/template6.png",
+      template: "template6.png",
+      x:868,
+      y:773,
     },
   ];
 
@@ -280,7 +308,9 @@ function YourComponent() {
   const openFullScreen = (image) => {
     setSelectedImage(image);
     setIsFullScreen(true);
-
+    setTemplate(image.template);
+    setXaxis(image.x);
+    setYaxis(image.y);
     // Scroll to the bottom of the page
     window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
   };
@@ -288,6 +318,9 @@ function YourComponent() {
   const closeFullScreen = () => {
     setSelectedImage(null);
     setIsFullScreen(false);
+    setTemplate(null);
+    setXaxis(null);
+    setYaxis(null);
   };
 
   const uploadHandler = () => {
@@ -312,12 +345,12 @@ function YourComponent() {
       </div>
 
       {isFullScreen && selectedImage && (
-        
+
         <div className="fullscreen-overlay"
-        style={{display:"flex",flexDirection:"row"}}>
-          <br/>
-          <img src="assets/images/close.png" onClick={closeFullScreen} style={{width:"20px",height:"fit-content",marginLeft:"5%"}}/>
-   
+          style={{ display: "flex", flexDirection: "row" }}>
+          <br />
+          <img src="assets/images/close.png" onClick={closeFullScreen} style={{ width: "20px", height: "fit-content", marginLeft: "5%" }} />
+
           <div className="fullscreen-content">
             <img
               src={selectedImage.overlayImage}
@@ -334,19 +367,19 @@ function YourComponent() {
                 alignItems: "center",
               }}
             >
-                 <label htmlFor="file" style={{
-          }}
-            >
-        {selectedFileName}
-        </label>
+              <label htmlFor="file" style={{
+              }}
+              >
+                {selectedFileName}
+              </label>
 
-        <input
-        type="file"
-        id="file"
-        onChange={handleFileChange}
-      
-        />
-        <button onClick={handleFileUpload} style={{ margin: "1%" }}>
+              <input
+                type="file"
+                id="file"
+                onChange={handleFileChange}
+
+              />
+              <button onClick={handleFileUpload} style={{ margin: "1%" }}>
                 Upload
               </button>
               <button
@@ -355,9 +388,9 @@ function YourComponent() {
               >
                 Generate
               </button>
-              
-              <p style={{ margin: "1%" }}>Status: {uploadStatus}<br/>
-              {status}</p>
+
+              <p style={{ margin: "1%" }}>Status: {uploadStatus}<br />
+                {status}</p>
             </div>
           </div>
         </div>

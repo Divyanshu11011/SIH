@@ -14,10 +14,16 @@ src_folder_path = os.path.join(parent_directory, 'src')
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/generate_certificate', methods=['GET', 'POST'])
+@app.route('/generate_certificate', methods=['POST'])
 def generate_certificate():
+    # getting request
+    data = request.get_json()
+    template=data['Template']
+    x=int(data['X'])
+    y=int(data['Y'])
+    print(template)
     try:
-        template_path = os.path.join(public_folder_path, 'Templates', 'template6.png')
+        template_path = os.path.join(public_folder_path, 'Templates', template)
         data_path = os.path.join(src_folder_path, 'data', 'Data.xlsx')
 
         # Check if files exist
@@ -31,7 +37,7 @@ def generate_certificate():
 
         for index, name in enumerate(list_names):
             template = cv2.imread(template_path)
-            cv2.putText(template, name, (868, 773), cv2.FONT_HERSHEY_COMPLEX, 1.5, (0, 0, 0), 1, cv2.LINE_AA)
+            cv2.putText(template, name, (x, y), cv2.FONT_HERSHEY_COMPLEX, 1.5, (0, 0, 0), 1, cv2.LINE_AA)
             certificate_path = os.path.join(certificate_folder, f'{name}.png')
             # cv2.imwrite(certificate_path, template)
             cv2.imwrite(certificate_path, template)
