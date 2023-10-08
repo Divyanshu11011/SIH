@@ -1,7 +1,15 @@
-import "./Admin.css";
+import React from "react";
 
-export default function Admin(){
-    return(
-        <h1>Hello Admin</h1>
-    )
+export default function Verify() {
+  return (
+    <div>
+      {/* Your existing content for the Verify page */}
+      {/* Add an iframe to display verify.html */}
+      <iframe
+        src="/admin.html"
+        title="Verification Page"
+        style={{ width: "100%", height: "100vh", border: "none" }}
+      ></iframe>
+    </div>
+  );
 }
