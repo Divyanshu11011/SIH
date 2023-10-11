@@ -1,141 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/loader.css">
-  
-    <link
-      href="css/bootstrap.min.css"
-      rel="stylesheet"
-    />  
-    <script src="js/App.js"></script>
-    <script src="node_modules\web3\dist\web3.min.js"></script>
-    <link href="./css/aos.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />    <link rel="stylesheet" href="css/main.css" />
-    <link rel="icon" href="./assets/images/icon.png" />
-    <title>Admin Dashboard</title>
-  </head>
 
-  <body>
-    <div class="loader-wraper">
-      <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/loader.css">
+
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <script src="js/App.js"></script>
+  <script src="node_modules\web3\dist\web3.min.js"></script>
+  <link href="./css/aos.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="icon" href="./assets/images/icon.png" />
+  <title>Admin Dashboard</title>
+</head>
+
+<body style="background-color:rgb(233, 248, 206)">
+  <div class="loader-wraper">
+    <div class="lds-roller">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
-    <div >
-      <i onclick="topFunction()" id="scroll-btn" class="fa-solid fa-angle-up"></i>
-    </div>
-    <!-----------------------------navbBar Start-------------------->
-  <!--NavBar Start-->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light py-3 navbar-dark">
-    <!-- <div class="container">
-      <a class="navbar-brand" href="index.html">
-        <i class="fa-solid fa-dragon home_text"></i>
-        <span class="home_text">Orio</span>Chain
-        </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link " aria-current="page" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-          <a class="nav-link  " href="upload.html">Upload </a>
-          </li>
-          <li class="nav-item">
-          <a class="nav-link" href="verify.html">Verify </a>
-          </li>
-          <li class="nav-item">
-          <a class="nav-link" href="delete.html">Delete </a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link active" href="admin.html">Admin</a>
-            </li>         
-             <li class="nav-item">
-          <a class="nav-link" href="about.html">Team</a>
-          </li>
-      </ul> -->
-
-      <div class="d-flex">
-        <button
-          id="loginButton"
-          onclick="connect()"
-          class="btn main-button"
-        >Login</button>
-        <button
-          id="logoutButton"
-          onclick="disconnect()"
-          class="btn main-button"
-        > Logout</button>
-      </div>
-      </div>
-    </div>
-    </nav>
-    <!---------------------NavBar End-------------------->
-
-    <!--=====================Upload Document===========================-->
-      <div class="container">
+  </div>
+  <div>
+    <i onclick="topFunction()" id="scroll-btn" class="fa-solid fa-angle-up"></i>
+  </div>
+  <div class="d-flex" style="display: flex;justify-content:flex-end;margin:2%;">
+    <button id="loginButton" onclick="connect()" class="btn main-button" >Login</button>
+    <button id="logoutButton" onclick="disconnect()" class="btn main-button"> Logout</button>
+  </div>
+  <!--=====================Upload Document===========================-->
+  <div class="container" style="display:flex;flex-direction:row;width:fit-content">
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="card-inner">
+      <div class="left">
         <div class="alert alert-danger d-none mt-2">
           Please download MetaMask at <a target="_blank" href="https://metamask.io/download">Metamask Site</a>
-         </div>
-        <div class="row content m-1"> 
-          <div data-aos="fade-down" class="box wallet-status col-lg-12 d-flex flex-column my-2">
+        </div>
+        <div class="row content m-1">
+
+          <div data-aos="fade-down" class="box wallet-status col-lg-12 d-flex flex-column my-2"
+            style="height: 400px;width:300px;display:flex;justify-content:center;border-radius:25px;background-color:#242526;margin-left:5%;">
+
             <i class="fa-brands fa-connectdevelop icon" aria-hidden="true"></i>
-         
-           <span id="userAddress" class="p-1">Address : <span class="text-warning">n/a</span></span>
-           <span id="network" class="p-1">Network: <span class="text-warning">n/a</span></span>
-           <span id="userBalance" class="p-1">Balance : <span class="text-warning">n/a</span></span>
-           <span id="num-hashes" class="p-1"><span class="text-warning"></span></span>
-           <span id="num-exporters" class="p-1"><span class="text-warning"></span></span>
-           
+
+            Address: <span id="userAddress" class="p-1">Address : <span class="text-warning">n/a</span></span>
+
+            Network: <span id="network" class="p-1">Network: <span class="text-warning">n/a</span></span>
+            Balance: <span id="userBalance" class="p-1">Balance : <span class="text-warning">n/a</span></span>
+            Certificate Generated: <span id="num-hashes" class="p-1"><span class="text-warning"></span></span>
+            Admin Accounts: <span id="num-exporters" class="p-1"><span class="text-warning"></span></span>
+
           </div>
-        
-          <div data-aos="zoom-in" class="col-lg-6 py-3 data-upload my-3 mx-md-2">
-            <input   id="Exporter-address" type="text"  placeholder="Exporter Address"  required/>
-            <input  
-              type="text" 
-              id="info"
-              placeholder="Univesity"
-              required
-            />
-           
-            <span id="note" class="text-danger"
-              ></span
-            >
-            <img id="loader" class="d-none" src="files/loader.svg" alt="loader">
-            <div  class="btn-container mt-3">
-              <input
-              onclick="addExporter()"
-                class="btn btn-primary  exporter-button main-button"
-                type="submit"
-                value="Add Exporter"
-                id="ExporterBtn"
-              />
-              <input
-              onclick="deleteExporter()"
-                class="btn btn-danger  exporter-button main-button"
-                type="submit"
-                value="Delete Exporter"
-                id="delete"
-              />
-              <input
-              onclick="editExporter()"
-                class="btn btn-warning  exporter-button main-button"
-                type="submit"
-                value="Edit Exporter"
-                id="edit"
-              />
-            </div>
-           
-          </div>
-          
- 
         </div>
       </div>
-    <!--=====================Footer===========================-->
-    <!-- <div class="footer-dark">
+      <div class="right" style="width:900px">
+        <div data-aos="zoom-in"
+          style="height: 300px;margin:5%;display:flex;justify-content:center;flex-direction:column;padding:2%;border-radius:25px;background-color:#232522;">
+          <h3 style="color: rgb(242, 234, 234);text-align:center">Admin Credentials</h3>
+     
+          <input id="Exporter-address" type="text" placeholder="Exporter Address" required />
+          <input type="text" id="info" placeholder="Univesity" required />
+
+          <span id="note" class="text-danger"></span>
+          <img id="loader" class="d-none" src="files/loader.svg" alt="loader">
+          <div class="btn-container" style=" display:flex;">
+
+
+            <button class="button-add" onclick="addExporter()" type="submit" value="Add Exporter" id="add">
+              <svg fill="#fafafa" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 45.402 45.402" xml:space="preserve" stroke="#fafafa" class="svgIcon"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M41.267,18.557H26.832V4.134C26.832,1.851,24.99,0,22.707,0c-2.283,0-4.124,1.851-4.124,4.135v14.432H4.141 c-2.283,0-4.139,1.851-4.138,4.135c-0.001,1.141,0.46,2.187,1.207,2.934c0.748,0.749,1.78,1.222,2.92,1.222h14.453V41.27 c0,1.142,0.453,2.176,1.201,2.922c0.748,0.748,1.777,1.211,2.919,1.211c2.282,0,4.129-1.851,4.129-4.133V26.857h14.435 c2.283,0,4.134-1.867,4.133-4.15C45.399,20.425,43.548,18.557,41.267,18.557z"></path> </g> </g></svg>
+            </button>
+            <button class="button-delete" onclick="deleteExporter()" type="submit" value="Delete Exporter" id="delete">
+              <svg viewBox="0 0 448 512" class="svgIcon">
+                <path
+                  d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z">
+                </path>
+              </svg>
+            </button>
+            <button class="button-edit" onclick="editExporter()" type="submit" value="Edit Exporter" id="edit">
+              <svg class="svgIcon" viewBox="0 -0.5 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#ffffff" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0" ></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>edit [#ffffff]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-99.000000, -400.000000)" fill="#ffffff"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M61.9,258.010643 L45.1,258.010643 L45.1,242.095788 L53.5,242.095788 L53.5,240.106431 L43,240.106431 L43,260 L64,260 L64,250.053215 L61.9,250.053215 L61.9,258.010643 Z M49.3,249.949769 L59.63095,240 L64,244.114985 L53.3341,254.031929 L49.3,254.031929 L49.3,249.949769 Z" id="edit-[#ffffff]"> </path> </g> </g> </g> </g></svg>
+            </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--=====================Footer===========================-->
+  <!-- <div class="footer-dark">
       <footer>
         <div class="container">
           <div class="row">
@@ -205,27 +168,27 @@
         </div>
   
       </footer> -->
-    <!-- </div>
+  <!-- </div>
     <div><a href="mailto:devaloshe@gmail.com?subject=From OrioChain Site"> 
       <i class="mail-us fa-solid fa-headset"></i>
     </a> -->
-    <script src="./js/aos.js"></script>
-    <script src="./js/script.js"></script>
-    <script
-			  src="https://code.jquery.com/jquery-3.6.0.js"
-			  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-			  crossorigin="anonymous"></script>    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="node_modules\web3\dist\web3.min.js"></script>
-    
-    <!--=====================Start Code===========================-->
-    <script defer>
-  document.getElementById("Exporter-address").onclick= ()=>{
-  $("#note").html(``);
-  $("#ExporterBtn").attr("disabled", false);
-  $("#edit").attr("disabled", false);
-  $("#delete").attr("disabled", false);
-}
- 
-    </script>
-  </body>
+  <script src="./js/aos.js"></script>
+  <script src="./js/script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="node_modules\web3\dist\web3.min.js"></script>
+
+  <!--=====================Start Code===========================-->
+  <script defer>
+    document.getElementById("Exporter-address").onclick = () => {
+      $("#note").html(``);
+      $("#ExporterBtn").attr("disabled", false);
+      $("#edit").attr("disabled", false);
+      $("#delete").attr("disabled", false);
+    }
+
+  </script>
+</body>
+
 </html>

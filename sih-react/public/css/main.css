@@ -1,15 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,500;1,700&family=Rubik+Glitch&family=Rubik+Moonrocks&family=Ubuntu&display=swap");
 
 :root {
-  --main-color: #cb3066;
-  --second-color: #16bffd;
   --box-shadow: 0 0 5px rgb(33, 3, 3);
   --border-color: 1px solid #c3c3c361;
   --dark: #1f2022;
   --light: rgb(157, 157, 157);
   --white: rgba(255, 255, 255, 0.925);
   --border-radius: 10px;
-  --inputs-background: #121212;
+  --inputs-background: #ffffff;
   --boxes-color: #252024 !important;
   --nav-background: #1f2022;
   --team-box-color: #151d20;
@@ -23,10 +21,9 @@ button {
   font-size: xx-large;
   border-bottom: 1px solid #dad3d33d;
   padding-bottom: 15px;
-  text-shadow: 1px 1px 1px rgb(123, 123, 123),
-  2px 2px 1px rgb(57, 34, 34);
+  text-shadow: 1px 1px 1px rgb(123, 123, 123), 2px 2px 1px rgb(57, 34, 34);
 }
-.fa-caret-down{
+.fa-caret-down {
   animation: bounce 1000ms alternate infinite;
 }
 .card {
@@ -35,8 +32,7 @@ button {
   width: 300px;
   box-shadow: 0 0px 5px rgb(15, 4, 10);
 }
-.card:hover
-{
+.card:hover {
   box-shadow: 0 0 10px rgb(18, 4, 4);
   transform: scale(1.15, 1.15);
   z-index: 1;
@@ -48,7 +44,6 @@ button {
   width: 100%;
   height: 100%;
 }
-
 
 #qrcode img,
 #qrcode canvas {
@@ -86,7 +81,7 @@ button {
   color: #c2eb45;
   box-shadow: 0 0 5px #ffffff;
 }
-.latest-tx{
+.latest-tx {
   overflow-x: hidden;
 }
 /*Floating Icons */
@@ -121,7 +116,7 @@ button {
 }
 @keyframes bounce {
   0% {
-   transform: translateY(10px);
+    transform: translateY(10px);
   }
   100% {
     transform: translateY(0px);
@@ -132,14 +127,177 @@ button {
   text-decoration: none;
   font-family: Roboto;
   /* overflow-x: hidden; */
+  
 }
 body {
   position: relative;
-  background: linear-gradient(to right,var(--second-color), var(--main-color));
-  overflow-x: hidden;
+  overflow-y: hidden;
+  
 }
-.navbar-dark {
-  background: var(--nav-background) !important;
+
+.button-delete {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgb(20, 20, 20);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+  cursor: pointer;
+  transition-duration: 0.3s;
+  overflow: hidden;
+  position: relative;
+}
+
+.svgIcon {
+  width: 12px;
+  transition-duration: 0.3s;
+}
+
+.svgIcon path {
+  fill: white;
+}
+
+.button-delete:hover {
+  width: 140px;
+  border-radius: 50px;
+  transition-duration: 0.3s;
+  background-color: rgb(255, 69, 69);
+  align-items: center;
+}
+
+.button-delete:hover .svgIcon {
+  width: 50px;
+  transition-duration: 0.3s;
+  transform: translateY(60%);
+}
+
+.button-delete::before {
+  position: absolute;
+  top: -20px;
+  content: "Delete";
+  color: white;
+  transition-duration: 0.3s;
+  font-size: 2px;
+}
+
+.button-delete:hover::before {
+  font-size: 13px;
+  opacity: 1;
+  transform: translateY(30px);
+  transition-duration: 0.3s;
+}
+.button-edit {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgb(20, 20, 20);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+  cursor: pointer;
+  transition-duration: 0.3s;
+  overflow: hidden;
+  position: relative;
+}
+
+.svgIcon {
+  width: 12px;
+  transition-duration: 0.3s;
+}
+
+.svgIcon path {
+  fill: white;
+}
+
+.button-edit:hover {
+  width: 140px;
+  border-radius: 50px;
+  transition-duration: 0.3s;
+  background-color: rgb(238, 192, 25);
+  align-items: center;
+}
+
+.button-edit:hover .svgIcon {
+  width: 50px;
+  transition-duration: 0.3s;
+  transform: translateY(60%);
+}
+
+.button-edit::before {
+  position: absolute;
+  top: -20px;
+  content: "Edit";
+  color: white;
+  transition-duration: 0.3s;
+  font-size: 2px;
+}
+.button-add {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgb(20, 20, 20);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+  cursor: pointer;
+  transition-duration: 0.3s;
+  overflow: hidden;
+  position: relative;
+}
+
+.svgIcon {
+  width: 12px;
+  transition-duration: 0.3s;
+}
+
+.svgIcon path {
+  fill: white;
+}
+
+.button-add:hover {
+  width: 140px;
+  border-radius: 50px;
+  transition-duration: 0.3s;
+  background-color: rgb(69, 165, 255);
+  align-items: center;
+}
+
+.button-add:hover .svgIcon {
+  width: 50px;
+  transition-duration: 0.3s;
+  transform: translateY(60%);
+}
+
+.button-add::before {
+  position: absolute;
+  top: -20px;
+  content: "Add";
+  color: white;
+  transition-duration: 0.3s;
+  font-size: 2px;
+}
+
+.button-add:hover::before {
+  font-size: 13px;
+  opacity: 1;
+  transform: translateY(30px);
+  transition-duration: 0.3s;
+}
+.button-edit:hover::before {
+  font-size: 13px;
+  opacity: 1;
+  transform: translateY(30px);
+  transition-duration: 0.3s;
 }
 
 /* ------------------------------------------------------------ */
@@ -212,7 +370,7 @@ section {
 /* Upload */
 .right {
   overflow: hidden;
-  margin: auto;
+  margin: 0%;
 }
 .right #student-document {
   width: 20rem;
@@ -254,8 +412,9 @@ input,
   box-shadow: var(--box-shadow);
   border-radius: 35px;
   height: 40px;
-  width: 90px;
-  color: var(--white);
+  width: 100px;
+  border:0px;
+  color: black;
   background: var(--main-color);
   font-weight: 500;
 }
@@ -325,7 +484,6 @@ input,
 .btn-container {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   justify-items: center;
@@ -335,7 +493,6 @@ input,
   width: 150px;
   height: 50px;
 }
-
 
 /* about */
 
@@ -479,4 +636,94 @@ input,
   opacity: 0.3;
   font-size: 13px;
   margin-bottom: 0;
+}
+.container {
+  width:fit-content;
+  
+  height: fit-content;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.card-inner {
+  display: flex;
+  flex-direction: row;
+  background: rgba(255,255,255,.05);
+  box-shadow: 0 0 10px rgba(0,0,0,0.25);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+}
+
+
+
+.circle {
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(#b0e633, #53ef7d);
+  border-radius: 50%;
+  position: absolute;
+  animation: move-up6 1s ease-in infinite alternate-reverse;
+}
+
+.circle:nth-child(1) {
+  top: -50px;
+  left: -50px;
+}
+
+.circle:nth-child(2) {
+  bottom: -50px;
+  right: -50px;
+  animation-name: move-down1;
+}
+
+@keyframes move-up6 {
+  to {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes move-down1 {
+  to {
+    transform: translateY(20px);
+  }
+}
+/* CSS */
+.button-89 {
+  margin: 2%;
+  --b: 3px; /* border thickness */
+  --s: 0.45em; /* size of the corner */
+  --color: #f5f7f7;
+
+  padding: calc(0.5em + var(--s)) calc(0.9em + var(--s));
+  color: var(--color);
+  --_p: var(--s);
+  background: conic-gradient(
+      from 90deg at var(--b) var(--b),
+      #0000 90deg,
+      var(--color) 0
+    )
+    var(--_p) var(--_p) / calc(100% - var(--b) - 2 * var(--_p))
+    calc(100% - var(--b) - 2 * var(--_p));
+  transition: 0.3s linear, color 0s, background-color 0s;
+  outline: var(--b) solid #0000;
+  outline-offset: 0.6em;
+  font-size: 16px;
+
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-89:hover,
+.button-89:focus-visible {
+  --_p: 0px;
+  outline-color: var(--color);
+  outline-offset: 0.05em;
+}
+
+.button-89:active {
+  background: var(--color);
+  color: #fff;
 }
