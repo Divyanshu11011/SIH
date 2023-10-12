@@ -23,8 +23,59 @@
     <link rel="stylesheet" href="css/main.css" />
     <link rel="icon" href="./assets/images/icon.png" />
     <title>Verfiy Document</title>
+    <style>
+  .card {
+  width: 1000px;
+  height: fit-content;
+  transition: all 0.2s;
+  position: relative;
+  cursor: pointer;
+}
+
+
+.card-inner {
+  
+  background:transparent;
+  box-shadow: 0 0 10px rgba(0,0,0,0.25);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+}
+
+.circle {
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(#9acff3, #2bb4ef);
+  border-radius: 50%;
+  position: absolute;
+  animation: move-up6 2s ease-in infinite alternate-reverse;
+}
+
+.circle:nth-child(1) {
+  top: -25px;
+  left: -25px;
+}
+
+.circle:nth-child(2) {
+  bottom: -25px;
+  right: -25px;
+  animation-name: move-down1;
+}
+
+@keyframes move-up6 {
+  to {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes move-down1 {
+  to {
+    transform: translateY(10px);
+  }
+}
+
+    </style>
   </head>
-  <body>
+  <body style="background-color:rgb(206, 236, 248)">
     <!-- loading Circular dots... -->
     <div class="loader-wraper">
       <div class="lds-roller">
@@ -99,23 +150,28 @@
         </div>
       </div>
     </nav> -->
-    <div class="container">
+    <div class="container" style="display:flex; flex-direction:row; margin-top:5%;justify-content:center">
+      <div class="card">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="card-inner"style=" display:flex; padding:20px;justify-content:center;">
+
       <!-- upload form -->
-      <div data-aos="zoom-in" class="col p-3 data-upload my-3 mx-md-2">
+      <div data-aos="zoom-in" class="col p-3 data-upload my-3 mx-md-2" style="background-color: #1e1f1f;">
         <input onchange="get_Sha3()" id="doc-file" type="file" />
         <span id="note" class="text-danger"></span>
         <img id="loader" src="files/loader.svg" alt="loader" />
-        <input
-          onclick="verify_Hash()"
-          class="btn mt-5 upload-button d-block main-button"
-          type="button"
-          value="Verify"
-          id="upload_file_button"
-        />
+       
+        <button class="button-verify" onclick="verify_Hash()" type="submit" value="Verify" id="upload_file_button">
+        VERIFY </button>
+
       </div>
       <!-- Verification result -->
       <div class="box d-none my-3 row gx-0 mx-md-2 transaction-status col-lg">
-        <div class="left col-lg-6 p-3 d-flex flex-column">
+        <div class="" style=" display:flex; 
+        flex-direction:column;
+       padding:10%;
+        justify-content: center;">
           <span class="p-2 info text-center" id="doc-status"></span>
           <span class="p-2 info" id="file-hash"></span>
           <span class="p-2 info" id="contract-address"></span>
@@ -123,7 +179,7 @@
           <span class="p-2 info" id="blockNumber"></span>
           <span class="p-2 info" id="college-name"></span>
 
-          <span class="d-flex justify-content-center">
+          <span class="" >
             <a
               title="View Cirtificate on IPFS"
               href="#"
@@ -142,6 +198,7 @@
           <img class="mt-4" id="student-document" alt="Student document" />
         </div>
       </div>
+    </div>
     </div>
     <!-- <footer class="footer-dark">
       <div class="container">
@@ -248,5 +305,5 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+  </body>
 </html>
